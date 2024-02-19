@@ -13,7 +13,7 @@ require('./dbs/init.mongodb')
 const {countConnect, checkOverload} = require('./helpers/check.connect')
 checkOverload();
 // init routes
-
+app.use('/', require('./routers'))
 // handling error
 
 module.exports = app;

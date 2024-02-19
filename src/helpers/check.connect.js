@@ -4,13 +4,13 @@ const os = require('os');
 const process = require('process');
 const _SECONDS = 5000;
 // COUNT CONNECTION
-const countConnect = ()=>{
+const countConnect = () => {
     const numConnection = mongoose.connections.length;
     console.log(`Number of connections: ${numConnection}`);
 }
 // CHECK OVERLOAD
 const checkOverload = () => {
-    setInterval( () => {
+    setInterval(() => {
         const numConnection = mongoose.connections.length;
         const numCores = os.cpus().length;
         const memoryUsage = process.memoryUsage().rss;
@@ -20,8 +20,7 @@ const checkOverload = () => {
         console.log(`Active connections: ${numConnection}`);
         console.log(`Memory usage: ${memoryUsage / 1024 / 1024} MB`);
 
-        if (numConnection > maxConnections)
-        {
+        if (numConnection > maxConnections) {
             console.log(`Connection overload detected`);
         }
 
